@@ -57,6 +57,21 @@ $hostname = isset($_SESSION['laragon-hostname']) ? $_SESSION['laragon-hostname']
         a:hover {
             color: red;
         }
+
+        .appicon {
+            height: 48px;
+            width: 48px;
+        }
+        
+        .appicon:link {
+            text-decoration: none;
+        }
+        
+        .appicon img {
+            max-height: 48px;
+            max-width: 48px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +88,22 @@ $hostname = isset($_SESSION['laragon-hostname']) ? $_SESSION['laragon-hostname']
             <div class="opt">
                 Apps
             </div>
+            <a class="appicon" title="Chat" href="https://chat.google.com" target="_blank">
+                <img src="//www.gstatic.com/dynamite/images/favicons_202011171613/chat-favicon-no-new-48dp.png">
+            </a>
+            <a class="appicon" title="Chat" href="https://mail.google.com/" target="_blank">
+                <img src="https://www.gstatic.com/images/branding/product/2x/gmail_2020q4_32dp.png">
+            </a>
+            <a class="appicon" title="Chat" href="https://gitlab.com" target="_blank">
+                <img src="https://about.gitlab.com/ico/favicon-96x96.png">
+            </a>
+            <a class="appicon" title="Chat" href="https://trello.com" target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACw0lEQVRo3t2YTU9TURCGZ1GXsuKXsAV+AD+n3YF8VERRFCiJCxNJ1LhwxbJr4KIgyIdSWhAUaUvZkVS+RLjmdU7ZzoCcySUcJ3lOmpyb586zalMiN2O1FJOmsb0SEzO4pcQXO9YyjZ0bk9tNUa6WZxAY+cbufGQYBEqaaLRaYhAoRQ6oxAwCJSYa4Q8hQyNlSNzJlZGdq2Oyeopo92qm+bnRpQPcfV6B5nR37pnpf3S6d7sd3C6ak2h4BxLZ2Tp85tXaITSnu/MZt4vm5IAfkJis/vJ62Xb9HJrT3fmM20VzEj3bhkTkGbDz8xya0935jNtFc3LAd0jYAmSnLUB2Ej3lQ8AUoDhNAYqTA75BwhYgO20BspNoaAsSUfXEP0Bx+gecqE4O2ISELUB22gJkJ9GTr5DwDziD5nR33gGK8z8IeLwBiahiCFCc3gG8i+bkgHVIRJVjQ4Ds9A84Vp1EgyVImAIUpylAcXJAERK2ANlpC5CdRI/4EDAFKE5TgOLkgDVI2AJkpy1AdhI9LEAiqhz5BdTPoDndnV/AkerkgFVI2AJkpy1AdhINfIFEVPYN+A3Nubjn990ysVFXnRzwGRK2ANnZ8W4bx2d/ruXbP4nRMr6pOoke8CFgClCcjubhAtpeb6H9zdW08nNNQ6uX+jhgBRJR+dAQsHJzUP8yJEwBijMRqH8JEraApZuD7i9CwhSgOBMh/IDsJ0hE5QP/AMWZCJRdgIQtYOHmoL55SEQ7hgDFmQjU9xES/gGn0JyJQL18CEyU9r0CFmtH0JyJQL1zkGh5scq/Q673P477ndPxdh2aMxGoZxYaTQPzaH1ZQPv42pW0jRfQPLiAy3yJQD0fEDTU/R5BQ90zCBq6NxMzCJSYA6ISg0ApEnVNZxgEStoFpKhrKs8gMPKN3RvTOZVi0tQ5WWRiBreU+GJHt+tUY/m/IknsszlfvSQAAAAASUVORK5CYII=">
+            </a>
+            <a class="appicon" title="Notion" href="https://www.notion.so" target="_blank">
+                <img src="https://www.notion.so/front-static/favicon.ico">
+            </a>
+            <div></div>
             <a title="Laragon Upload" href="/laragon" target="_blank">Upload</a> |
             <a title="phpSysInfo" href="/phpsysinfo" target="_blank">phpSysInfo</a> |
             <a title="Memcached" href="/memcached" target="_blank">Memcached</a> |
@@ -85,7 +116,7 @@ $hostname = isset($_SESSION['laragon-hostname']) ? $_SESSION['laragon-hostname']
         <div>Hostname: <span>{name}.</span><input id="hostname" value="<?php print $hostname; ?>"></div>
 
         <?php foreach (glob('*', GLOB_ONLYDIR) as $project): ?>
-            <a href="http://<?= strtolower($project . '.' . $hostname) ?>"
+            <a href="http://<?php echo strtolower($project . '.' . $hostname) ?>"
                    target="_blank"><?= $project . '.' . $hostname ?></a>
             <br>
         <?php endforeach; ?>
